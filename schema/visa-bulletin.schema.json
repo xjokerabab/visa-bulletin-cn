@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yiminshuju.com/schema/visa-bulletin.schema.json",
+  "title": "Visa Bulletin Monthly Dataset",
+  "description": "美国国务院签证公告（Visa Bulletin）职业移民排期表 · 单月数据结构",
+  "type": "object",
+  "required": [
+    "month",
+    "source_agency",
+    "source_url",
+    "collected_at",
+    "site",
+    "detail_url",
+    "license",
+    "rows"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "month": {
+      "type": "string",
+      "pattern": "^\\d{4}-(0[1-9]|1[0-2])$",
+      "description": "排期所属月份，格式 YYYY-MM（如 2026-09）"
+    },
+    "source_agency": {
+      "type": "string",
+      "description": "数据原始发布机构"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "官方公告原文地址（travel.state.gov）"
+    },
+    "issue_no": {
+      "type": ["string", "null"],
+      "description": "官方公告期号，如 Volume XI, Number 18"
+    },
+    "collected_at": {
+      "type": ["string", "null"],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "本数据集采集该期数据的日期"
+    },
+    "site": {
+      "type": "string",
+      "format": "uri",
+      "description": "数据整理方站点"
+    },
+    "detail_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "该月排期的中文解读页地址"
+    },
+    "license": {
+      "type": "string",
+      "description": "数据许可协议"
+    },
+    "mapping_note": {
+      "type": "string",
+      "description": "类别代码与官方表格行的对应口径"
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 1,
+      "description": "排期表条目。每个「类别 × 表别 × 可受理国家」组合一条。",
+      "items": {
+        "type": "object",
+        "required": ["category", "chart", "chargeability", "cutoff_date"],
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "enum": ["EB-1", "EB-2", "EB-3", "EB-4", "EB-5", "EB-5-HU", "EB-5-INF", "EB-5-RU", "EW-3", "SR"],
+            "description": "职业移民优先类别。EB-1/2/3/5 对应官方 1st/2nd/3rd/5th Unreserved；EW-3 = Other Workers（第三优先其他工人）；EB-4 = 第四优先特殊移民；SR = Certain Religious Workers（宗教工作者）；EB-5-RU / EB-5-HU / EB-5-INF = EB-5 三个预留名额，分别为乡村 / 高失业区 / 基建。"
+          },
+          "chart": {
+            "enum": ["A", "B"],
+            "description": "A = 最终裁定日（Final Action Dates）；B = 递交申请日（Dates for Filing）"
+          },
+          "chargeability": {
+            "enum": ["WW", "CHN", "IND"],
+            "description": "可受理国家/地区。WW = All Chargeability Areas Except Those Listed（全球，不含中印）；CHN = 中国大陆出生；IND = 印度出生。官方表格另列 MEXICO、PHILIPPINES 两栏，本数据集未采集。"
+          },
+          "cutoff_date": {
+            "type": "string",
+            "pattern": "^(\\d{4}-\\d{2}-\\d{2}|C|U)$",
+            "description": "截止日。日期表示排到该日（含）之前的优先日；C = Current（当前有名额）；U = Unavailable（暂无授权名额）"
+          }
+        }
+      }
+    }
+  }
+}

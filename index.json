@@ -1,0 +1,38 @@
+{
+  "dataset": "visa-bulletin-cn",
+  "description": "美国国务院签证公告（Visa Bulletin）职业移民排期表 · 中文结构化数据",
+  "site": "https://yiminshuju.com",
+  "license": "CC BY 4.0",
+  "source_agency": "U.S. Department of State, Bureau of Consular Affairs",
+  "updated_at": "2026-09-20",
+  "latest": "2026-09",
+  "latest_file": "data/2026-09.json",
+  "month_count": 3,
+  "row_count_per_month": 60,
+  "months": [
+    {
+      "month": "2026-09",
+      "file": "data/2026-09.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-september-2026.html",
+      "detail_url": "https://yiminshuju.com/paiqi/2026-09/",
+      "collected_at": "2026-09-15",
+      "row_count": 60
+    },
+    {
+      "month": "2026-08",
+      "file": "data/2026-08.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-august-2026.html",
+      "detail_url": "https://yiminshuju.com/paiqi/2026-08/",
+      "collected_at": "2026-09-15",
+      "row_count": 60
+    },
+    {
+      "month": "2026-07",
+      "file": "data/2026-07.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-july-2026.html",
+      "detail_url": "https://yiminshuju.com/paiqi/2026-07/",
+      "collected_at": "2026-09-15",
+      "row_count": 60
+    }
+  ]
+}

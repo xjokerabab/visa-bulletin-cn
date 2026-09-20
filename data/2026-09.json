@@ -1,0 +1,373 @@
+{
+  "month": "2026-09",
+  "source_agency": "U.S. Department of State, Bureau of Consular Affairs",
+  "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-september-2026.html",
+  "issue_no": "Volume XI, Number 18",
+  "collected_at": "2026-09-15",
+  "site": "https://yiminshuju.com",
+  "detail_url": "https://yiminshuju.com/paiqi/2026-09/",
+  "license": "CC BY 4.0",
+  "mapping_note": "10 个 code 依次对应官方表格的 10 行：1st / 2nd / 3rd / Other Workers / 4th / Certain Religious Workers / 5th Unreserved / 5th Set Aside: Rural / 5th Set Aside: High Unemployment / 5th Set Aside: Infrastructure，本数据集记为 EB-1 / EB-2 / EB-3 / EW-3 / EB-4 / SR / EB-5 / EB-5-RU / EB-5-HU / EB-5-INF。WW 对应 All Chargeability Areas Except Those Listed。官方表格另列 MEXICO、PHILIPPINES 两栏，本数据集未采集。",
+  "rows": [
+    {
+      "category": "EB-1",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-1",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2023-07-01"
+    },
+    {
+      "category": "EB-1",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2022-10-15"
+    },
+    {
+      "category": "EB-1",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-1",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2023-12-01"
+    },
+    {
+      "category": "EB-1",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2023-12-01"
+    },
+    {
+      "category": "EB-2",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-2",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2021-09-01"
+    },
+    {
+      "category": "EB-2",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "U"
+    },
+    {
+      "category": "EB-2",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-2",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2022-01-01"
+    },
+    {
+      "category": "EB-2",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2015-01-15"
+    },
+    {
+      "category": "EB-3",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2024-09-01"
+    },
+    {
+      "category": "EB-3",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2022-01-01"
+    },
+    {
+      "category": "EB-3",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2014-01-01"
+    },
+    {
+      "category": "EB-3",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-3",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2022-01-08"
+    },
+    {
+      "category": "EB-3",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2015-01-15"
+    },
+    {
+      "category": "EW-3",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2022-04-01"
+    },
+    {
+      "category": "EW-3",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2019-05-01"
+    },
+    {
+      "category": "EW-3",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2014-01-01"
+    },
+    {
+      "category": "EW-3",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2022-08-01"
+    },
+    {
+      "category": "EW-3",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2019-10-01"
+    },
+    {
+      "category": "EW-3",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2015-01-15"
+    },
+    {
+      "category": "EB-4",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2022-12-15"
+    },
+    {
+      "category": "EB-4",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2022-12-15"
+    },
+    {
+      "category": "EB-4",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2022-12-15"
+    },
+    {
+      "category": "EB-4",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2023-01-01"
+    },
+    {
+      "category": "EB-4",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2023-01-01"
+    },
+    {
+      "category": "EB-4",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2023-01-01"
+    },
+    {
+      "category": "SR",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2022-12-15"
+    },
+    {
+      "category": "SR",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2022-12-15"
+    },
+    {
+      "category": "SR",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2022-12-15"
+    },
+    {
+      "category": "SR",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2023-01-01"
+    },
+    {
+      "category": "SR",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2023-01-01"
+    },
+    {
+      "category": "SR",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2023-01-01"
+    },
+    {
+      "category": "EB-5",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2016-12-01"
+    },
+    {
+      "category": "EB-5",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "U"
+    },
+    {
+      "category": "EB-5",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2017-03-01"
+    },
+    {
+      "category": "EB-5",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2024-05-01"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    }
+  ]
+}

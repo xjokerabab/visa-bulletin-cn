@@ -1,0 +1,32 @@
+name: Validate dataset
+
+# 只做校验，不做采集。
+#
+# 数据更新由人工核对官方公告原文后提交，刻意不放到 Actions 里跑：
+# 一是官方站有反自动化机制，从云上自动抓取容易被拦；
+# 二是让机器去改数据，就失去了「逐格核对」这层保证。
+# CI 的职责只是拦住录入错误。
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'index.json'
+      - 'schema/**'
+      - '.github/scripts/validate.mjs'
+      - '.github/workflows/validate.yml'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 校验数据结构与索引一致性
+        run: node .github/scripts/validate.mjs
