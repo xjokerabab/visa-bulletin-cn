@@ -79,9 +79,15 @@ schema/visa-bulletin.schema.json   # JSON Schema
 取当期数据（推荐：先读索引，再读对应文件）：
 
 ```bash
+# 官方 raw 地址
 curl -s https://raw.githubusercontent.com/xjokerabab/visa-bulletin-cn/main/index.json | jq '.latest, .latest_file'
 curl -s https://raw.githubusercontent.com/xjokerabab/visa-bulletin-cn/main/data/2026-09.json | jq '.rows[] | select(.category=="EB-2" and .chart=="A" and .chargeability=="CHN")'
+
+# 国内访问 raw 不稳时，换 jsDelivr CDN（同一份内容，带国内节点）
+curl -s https://cdn.jsdelivr.net/gh/xjokerabab/visa-bulletin-cn@main/index.json | jq '.latest'
 ```
+
+两个地址内容完全一致，任选其一。做批量拉取或长期依赖时，建议把域名做成可配置项，别写死在代码里。
 
 Python：
 
