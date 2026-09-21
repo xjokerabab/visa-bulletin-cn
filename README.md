@@ -196,11 +196,13 @@ def advance(old, new):
 <details>
 <summary><b>English</b></summary>
 
-### Visa Bulletin CN — Structured Chinese dataset of U.S. employment-based immigrant visa cut-off dates
+### Visa Bulletin CN — U.S. Visa Bulletin cutoff dates as structured JSON
 
-The U.S. Department of State publishes the Visa Bulletin monthly as English HTML tables. This repository provides the employment-based preference cut-off dates as stable JSON: 10 categories (EB-1/2/3, Other Workers, EB-4, Certain Religious Workers, EB-5 Unreserved and its three Set-Aside categories), both Final Action Dates and Dates for Filing, for All Chargeability Areas / China-mainland-born / India-born.
+The U.S. Department of State publishes the Visa Bulletin monthly as English HTML tables. This repository provides the cutoff dates as stable JSON: **15 categories across two independent charts** — employment-based (EB-1/2/3, Other Workers, EB-4, Certain Religious Workers, EB-5 Unreserved and its three Set-Aside categories) and family-sponsored (F1, F2A, F2B, F3, F4) — for both Final Action Dates and Dates for Filing, and for All Chargeability Areas / China-mainland-born / India-born.
 
-60 rows per month. `cutoff_date` is either an ISO date, `C` (Current) or `U` (Unavailable) — note that `C` and `U` are **not** dates.
+**90 rows per month.** The two charts have separate quotas and must not be summed.
+
+`cutoff_date` is either an ISO date, `C` (Current) or `U` (Unavailable) — note that `C` and `U` are **not** dates.
 
 Read `index.json` for the latest month, then fetch `data/YYYY-MM.json`.
 
