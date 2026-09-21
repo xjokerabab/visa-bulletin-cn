@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://yiminshuju.com/schema/visa-bulletin.schema.json",
   "title": "Visa Bulletin Monthly Dataset",
-  "description": "美国国务院签证公告（Visa Bulletin）职业移民排期表 · 单月数据结构",
+  "description": "美国国务院签证公告（Visa Bulletin）职业移民与亲属移民排期表 · 单月数据结构",
   "type": "object",
   "required": [
     "month",
@@ -67,8 +67,8 @@
         "additionalProperties": false,
         "properties": {
           "category": {
-            "enum": ["EB-1", "EB-2", "EB-3", "EB-4", "EB-5", "EB-5-HU", "EB-5-INF", "EB-5-RU", "EW-3", "SR"],
-            "description": "职业移民优先类别。EB-1/2/3/5 对应官方 1st/2nd/3rd/5th Unreserved；EW-3 = Other Workers（第三优先其他工人）；EB-4 = 第四优先特殊移民；SR = Certain Religious Workers（宗教工作者）；EB-5-RU / EB-5-HU / EB-5-INF = EB-5 三个预留名额，分别为乡村 / 高失业区 / 基建。"
+            "enum": ["EB-1", "EB-2", "EB-3", "EB-4", "EB-5", "EB-5-HU", "EB-5-INF", "EB-5-RU", "EW-3", "SR", "F1", "F2A", "F2B", "F3", "F4"],
+            "description": "优先类别，分职业移民（EB）与亲属移民（F）两组。EB-1/2/3/5 对应官方 1st/2nd/3rd/5th Unreserved；EW-3 = Other Workers（第三优先其他工人）；EB-4 = 第四优先特殊移民；SR = Certain Religious Workers（宗教工作者）；EB-5-RU / EB-5-HU / EB-5-INF = EB-5 三个预留名额，分别为乡村 / 高失业区 / 基建。亲属移民 F1 = 公民成年未婚子女；F2A = 绿卡持有人配偶及未成年子女；F2B = 绿卡持有人成年未婚子女；F3 = 公民已婚子女；F4 = 公民兄弟姐妹。两组配额互相独立，不可相加。"
           },
           "chart": {
             "enum": ["A", "B"],

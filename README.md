@@ -1,6 +1,6 @@
 # visa-bulletin-cn
 
-美国国务院签证公告（Visa Bulletin）**职业移民排期表**的中文结构化数据。
+美国国务院签证公告（Visa Bulletin）**职业移民与亲属移民排期表**的中文结构化数据。
 
 官方原文是英文 HTML 表格，每月一期、格式不便程序化读取。本仓库把它整理成稳定的 JSON，供开发者、数据分析和自动化工具直接消费。
 
@@ -12,10 +12,10 @@
 
 | 维度 | 覆盖 |
 |---|---|
-| 类别 | 10 个（见下表） |
+| 类别 | 15 个（职业移民 10 + 亲属移民 5，见下表） |
 | 表别 | 表 A 最终裁定日（Final Action Dates）、表 B 递交申请日（Dates for Filing） |
 | 国家/地区 | 全球（WW，不含中印）、中国大陆出生（CHN）、印度出生（IND） |
-| 单月条目 | 10 类别 × 2 表别 × 3 国家 = **60 条** |
+| 单月条目 | 15 类别 × 2 表别 × 3 国家 = **90 条** |
 | 时间跨度 | 2026-07 起，每月累积 |
 
 ### 类别对照
@@ -34,8 +34,15 @@
 | `EB-5-RU` | 5th Set Aside: Rural | 第五优先 乡村预留 |
 | `EB-5-HU` | 5th Set Aside: High Unemployment | 第五优先 高失业区预留 |
 | `EB-5-INF` | 5th Set Aside: Infrastructure | 第五优先 基建预留 |
+| `F1` | 1st (Family) | 亲属 第一优先（公民成年未婚子女） |
+| `F2A` | 2A (Family) | 亲属 第二优先 A（绿卡持有人配偶及未成年子女） |
+| `F2B` | 2B (Family) | 亲属 第二优先 B（绿卡持有人成年未婚子女） |
+| `F3` | 3rd (Family) | 亲属 第三优先（公民已婚子女） |
+| `F4` | 4th (Family) | 亲属 第四优先（公民兄弟姐妹） |
 
 官方表格另列 MEXICO、PHILIPPINES 两栏，本数据集未采集。
+
+职业移民表与亲属移民表是**两张独立的表**，各有独立配额，**条数不可相加**；`category` 前缀即可区分（`EB-*` / `EW-3` / `SR` 属职业移民，`F*` 属亲属移民）。
 
 **本仓库只收录原始排期表**——即任何人可从 [travel.state.gov](https://travel.state.gov) 免费获取、只是语言与格式不便的那部分数据。逐类解读、变动原因分析、下月预测等增值内容保留在站点。
 
@@ -65,7 +72,7 @@ schema/visa-bulletin.schema.json   # JSON Schema
 
 | 字段 | 取值 | 说明 |
 |---|---|---|
-| `category` | 见上方类别对照表 | 职业移民优先类别 |
+| `category` | 见上方类别对照表 | 优先类别（职业移民 / 亲属移民） |
 | `chart` | `A` `B` | A = 最终裁定日；B = 递交申请日 |
 | `chargeability` | `WW` `CHN` `IND` | WW = 全球（不含中印）；CHN = 中国大陆出生；IND = 印度出生 |
 | `cutoff_date` | `YYYY-MM-DD` \| `C` \| `U` | 截止日。`C` = Current（当前有名额）；`U` = Unavailable（暂无授权名额） |
