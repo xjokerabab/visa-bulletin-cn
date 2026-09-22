@@ -60,8 +60,16 @@ for (const file of files) {
     fail(file, `source_url 应指向 travel.state.gov，实为 ${data.source_url}`);
   }
   if (data.site !== SITE) fail(file, `site 应为 ${SITE}，实为 ${data.site}`);
-  if (data.detail_url !== `${SITE}/paiqi/${expectedMonth}/`) {
-    fail(file, `detail_url 应为 ${SITE}/paiqi/${expectedMonth}/，实为 ${data.detail_url}`);
+
+  // detail_url 只有两个合法取值：该月的独立解读页，或排期总览页。
+  //
+  // 历史月份（2023-01 ~ 2026-06）在站点还没有逐月解读页，指向总览页；站点补上
+  // 那些页面后，重新导出会把它们换成月份页。这里**刻意不接受任意 URL** ——
+  // 这个字段的价值就是「回源锚点」，指向一个 404 等于没有锚点。
+  const monthPage = `${SITE}/paiqi/${expectedMonth}/`;
+  const hubPage = `${SITE}/paiqi/`;
+  if (data.detail_url !== monthPage && data.detail_url !== hubPage) {
+    fail(file, `detail_url 应为 ${monthPage} 或 ${hubPage}，实为 ${data.detail_url}`);
   }
   if (data.collected_at && !isIsoDate(data.collected_at)) {
     fail(file, `collected_at 不是合法日期：${data.collected_at}`);
@@ -127,6 +135,28 @@ if (!fs.existsSync(INDEX_FILE)) {
   }
   if (index.month_count !== expected.length) {
     fail('index.json', `month_count 应为 ${expected.length}，实为 ${index.month_count}`);
+  }
+
+  // coverage 必须与实际月份序列自洽。这段不是装饰：序列里断了一格（本数据集是
+  // 2023-10，官方 PDF 存档本身没有那一期）而 coverage 没跟上，消费方做连续序列时
+  // 会以为是自己抓漏了。所以「声明缺的」必须与「真的缺的」逐字相等。
+  if (index.coverage) {
+    const gaps = [];
+    for (let i = expected.length - 1; i > 0; i -= 1) {
+      const [y, m] = expected[i].split('-').map(Number);
+      const next = m === 12 ? `${y + 1}-01` : `${y}-${String(m + 1).padStart(2, '0')}`;
+      if (next !== expected[i - 1]) gaps.push(next);
+    }
+    const declared = index.coverage.missing_months ?? [];
+    if (declared.join(',') !== gaps.join(',')) {
+      fail('index.json',
+        `coverage.missing_months（${declared.join('、') || '空'}）与月份序列的实际缺口（${gaps.join('、') || '无'}）不符`);
+    }
+    const oldest = expected[expected.length - 1];
+    if (index.coverage.from !== oldest || index.coverage.to !== expected[0]) {
+      fail('index.json',
+        `coverage.from/to（${index.coverage.from} ~ ${index.coverage.to}）与月份范围（${oldest} ~ ${expected[0]}）不符`);
+    }
   }
 
   for (const m of index.months ?? []) {

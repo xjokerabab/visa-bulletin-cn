@@ -4,11 +4,18 @@
   "site": "https://yiminshuju.com",
   "license": "CC BY 4.0",
   "source_agency": "U.S. Department of State, Bureau of Consular Affairs",
-  "updated_at": "2026-09-21",
+  "updated_at": "2026-09-22",
   "latest": "2026-09",
   "latest_file": "data/2026-09.json",
-  "month_count": 3,
+  "month_count": 44,
   "row_count_per_month": 90,
+  "coverage": {
+    "from": "2023-01",
+    "to": "2026-09",
+    "missing_months": [
+      "2023-10"
+    ]
+  },
   "months": [
     {
       "month": "2026-09",
@@ -32,6 +39,334 @@
       "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-july-2026.html",
       "detail_url": "https://yiminshuju.com/paiqi/2026-07/",
       "collected_at": "2026-09-21",
+      "row_count": 90
+    },
+    {
+      "month": "2026-06",
+      "file": "data/2026-06.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-june-2026.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2026-05",
+      "file": "data/2026-05.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-may-2026.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2026-04",
+      "file": "data/2026-04.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-april-2026.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2026-03",
+      "file": "data/2026-03.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-march-2026.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2026-02",
+      "file": "data/2026-02.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-february-2026.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2026-01",
+      "file": "data/2026-01.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-january-2026.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-12",
+      "file": "data/2025-12.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-december-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-11",
+      "file": "data/2025-11.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-november-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-10",
+      "file": "data/2025-10.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2026/visa-bulletin-for-october-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-09",
+      "file": "data/2025-09.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-september-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-08",
+      "file": "data/2025-08.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-august-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-07",
+      "file": "data/2025-07.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-july-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-06",
+      "file": "data/2025-06.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-june-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-05",
+      "file": "data/2025-05.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-may-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-04",
+      "file": "data/2025-04.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-april-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-03",
+      "file": "data/2025-03.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-march-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-02",
+      "file": "data/2025-02.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-february-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2025-01",
+      "file": "data/2025-01.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-january-2025.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-12",
+      "file": "data/2024-12.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-december-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-11",
+      "file": "data/2024-11.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-november-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-10",
+      "file": "data/2024-10.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2025/visa-bulletin-for-october-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-09",
+      "file": "data/2024-09.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-september-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-08",
+      "file": "data/2024-08.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-august-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-07",
+      "file": "data/2024-07.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-july-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-06",
+      "file": "data/2024-06.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-june-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-05",
+      "file": "data/2024-05.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-may-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-04",
+      "file": "data/2024-04.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-april-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-03",
+      "file": "data/2024-03.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-march-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-02",
+      "file": "data/2024-02.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-february-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2024-01",
+      "file": "data/2024-01.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-january-2024.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-12",
+      "file": "data/2023-12.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-december-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-11",
+      "file": "data/2023-11.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-november-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-09",
+      "file": "data/2023-09.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2023/visa-bulletin-for-september-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-08",
+      "file": "data/2023-08.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2023/visa-bulletin-for-august-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-07",
+      "file": "data/2023-07.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2023/visa-bulletin-for-july-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-06",
+      "file": "data/2023-06.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2023/visa-bulletin-for-june-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-05",
+      "file": "data/2023-05.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2023/visa-bulletin-for-may-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-04",
+      "file": "data/2023-04.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2023/visa-bulletin-for-april-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-03",
+      "file": "data/2023-03.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2023/visa-bulletin-for-march-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-02",
+      "file": "data/2023-02.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2023/visa-bulletin-for-february-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
+      "row_count": 90
+    },
+    {
+      "month": "2023-01",
+      "file": "data/2023-01.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2023/visa-bulletin-for-january-2023.html",
+      "detail_url": "https://yiminshuju.com/paiqi/",
+      "collected_at": "2026-09-22",
       "row_count": 90
     }
   ]

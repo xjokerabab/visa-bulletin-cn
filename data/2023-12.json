@@ -1,0 +1,553 @@
+{
+  "month": "2023-12",
+  "source_agency": "U.S. Department of State, Bureau of Consular Affairs",
+  "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2024/visa-bulletin-for-december-2023.html",
+  "issue_no": null,
+  "collected_at": "2026-09-22",
+  "site": "https://yiminshuju.com",
+  "detail_url": "https://yiminshuju.com/paiqi/",
+  "license": "CC BY 4.0",
+  "mapping_note": "本数据集采集官方公告里的两张表：职业移民表（Employment-Based）10 行 + 亲属移民表（Family-Sponsored）5 行，共 15 行。职业移民 code 依次对应 1st / 2nd / 3rd / Other Workers / 4th / Certain Religious Workers / 5th Unreserved / 5th Set Aside: Rural / 5th Set Aside: High Unemployment / 5th Set Aside: Infrastructure，记为 EB-1 / EB-2 / EB-3 / EW-3 / EB-4 / SR / EB-5 / EB-5-RU / EB-5-HU / EB-5-INF；亲属移民 code 依次对应 F1 / F2A / F2B / F3 / F4。WW 对应 All Chargeability Areas Except Those Listed。两张表各有独立的配额，不可相加。官方表格另列 MEXICO、PHILIPPINES 两栏，本数据集未采集。",
+  "rows": [
+    {
+      "category": "EB-1",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-1",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2022-02-15"
+    },
+    {
+      "category": "EB-1",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2017-01-01"
+    },
+    {
+      "category": "EB-1",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-1",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2022-08-01"
+    },
+    {
+      "category": "EB-1",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2019-07-01"
+    },
+    {
+      "category": "EB-2",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2022-07-15"
+    },
+    {
+      "category": "EB-2",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2019-10-22"
+    },
+    {
+      "category": "EB-2",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2012-01-01"
+    },
+    {
+      "category": "EB-2",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2023-01-01"
+    },
+    {
+      "category": "EB-2",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2020-01-01"
+    },
+    {
+      "category": "EB-2",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2012-05-15"
+    },
+    {
+      "category": "EB-3",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2021-12-01"
+    },
+    {
+      "category": "EB-3",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2020-01-22"
+    },
+    {
+      "category": "EB-3",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2012-05-01"
+    },
+    {
+      "category": "EB-3",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2023-02-01"
+    },
+    {
+      "category": "EB-3",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2020-09-01"
+    },
+    {
+      "category": "EB-3",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2012-08-01"
+    },
+    {
+      "category": "EW-3",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2020-08-01"
+    },
+    {
+      "category": "EW-3",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2016-01-01"
+    },
+    {
+      "category": "EW-3",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2012-05-01"
+    },
+    {
+      "category": "EW-3",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2020-12-15"
+    },
+    {
+      "category": "EW-3",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2017-06-01"
+    },
+    {
+      "category": "EW-3",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2012-08-01"
+    },
+    {
+      "category": "EB-4",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2019-01-01"
+    },
+    {
+      "category": "EB-4",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2019-01-01"
+    },
+    {
+      "category": "EB-4",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2019-01-01"
+    },
+    {
+      "category": "EB-4",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2019-03-01"
+    },
+    {
+      "category": "EB-4",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2019-03-01"
+    },
+    {
+      "category": "EB-4",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2019-03-01"
+    },
+    {
+      "category": "SR",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "U"
+    },
+    {
+      "category": "SR",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "U"
+    },
+    {
+      "category": "SR",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "U"
+    },
+    {
+      "category": "SR",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2019-03-01"
+    },
+    {
+      "category": "SR",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2019-03-01"
+    },
+    {
+      "category": "SR",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2019-03-01"
+    },
+    {
+      "category": "EB-5",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2015-10-01"
+    },
+    {
+      "category": "EB-5",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2018-12-15"
+    },
+    {
+      "category": "EB-5",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2017-01-01"
+    },
+    {
+      "category": "EB-5",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2022-04-01"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-RU",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-HU",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "EB-5-INF",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "C"
+    },
+    {
+      "category": "F1",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2015-01-01"
+    },
+    {
+      "category": "F1",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2015-01-01"
+    },
+    {
+      "category": "F1",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2015-01-01"
+    },
+    {
+      "category": "F1",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2017-09-01"
+    },
+    {
+      "category": "F1",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2017-09-01"
+    },
+    {
+      "category": "F1",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2017-09-01"
+    },
+    {
+      "category": "F2A",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2019-02-08"
+    },
+    {
+      "category": "F2A",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2019-02-08"
+    },
+    {
+      "category": "F2A",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2019-02-08"
+    },
+    {
+      "category": "F2A",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2023-09-01"
+    },
+    {
+      "category": "F2A",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2023-09-01"
+    },
+    {
+      "category": "F2A",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2023-09-01"
+    },
+    {
+      "category": "F2B",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2015-09-22"
+    },
+    {
+      "category": "F2B",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2015-09-22"
+    },
+    {
+      "category": "F2B",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2015-09-22"
+    },
+    {
+      "category": "F2B",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2017-01-01"
+    },
+    {
+      "category": "F2B",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2017-01-01"
+    },
+    {
+      "category": "F2B",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2017-01-01"
+    },
+    {
+      "category": "F3",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2009-01-08"
+    },
+    {
+      "category": "F3",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2009-01-08"
+    },
+    {
+      "category": "F3",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2009-01-08"
+    },
+    {
+      "category": "F3",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2010-03-01"
+    },
+    {
+      "category": "F3",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2010-03-01"
+    },
+    {
+      "category": "F3",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2010-03-01"
+    },
+    {
+      "category": "F4",
+      "chart": "A",
+      "chargeability": "WW",
+      "cutoff_date": "2007-04-22"
+    },
+    {
+      "category": "F4",
+      "chart": "A",
+      "chargeability": "CHN",
+      "cutoff_date": "2007-04-22"
+    },
+    {
+      "category": "F4",
+      "chart": "A",
+      "chargeability": "IND",
+      "cutoff_date": "2005-10-08"
+    },
+    {
+      "category": "F4",
+      "chart": "B",
+      "chargeability": "WW",
+      "cutoff_date": "2008-03-01"
+    },
+    {
+      "category": "F4",
+      "chart": "B",
+      "chargeability": "CHN",
+      "cutoff_date": "2008-03-01"
+    },
+    {
+      "category": "F4",
+      "chart": "B",
+      "chargeability": "IND",
+      "cutoff_date": "2006-02-22"
+    }
+  ]
+}

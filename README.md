@@ -16,7 +16,7 @@
 | 表别 | 表 A 最终裁定日（Final Action Dates）、表 B 递交申请日（Dates for Filing） |
 | 国家/地区 | 全球（WW，不含中印）、中国大陆出生（CHN）、印度出生（IND） |
 | 单月条目 | 15 类别 × 2 表别 × 3 国家 = **90 条** |
-| 时间跨度 | 2026-07 起，每月累积 |
+| 时间跨度 | **2023-01 ~ 2026-09，共 44 期**（官方 PDF 存档缺 2023-10，见「更新节奏」） |
 
 ### 类别对照
 
@@ -40,7 +40,7 @@
 | `F3` | 3rd (Family) | 亲属 第三优先（公民已婚子女） |
 | `F4` | 4th (Family) | 亲属 第四优先（公民兄弟姐妹） |
 
-官方表格另列 MEXICO、PHILIPPINES 两栏，本数据集未采集。
+官方表格另列 MEXICO、PHILIPPINES 两栏（2023 年 1–3 月还有 EL SALVADOR / GUATEMALA / HONDURAS），本数据集只收录 WW / CHN / IND 三栏。
 
 职业移民表与亲属移民表是**两张独立的表**，各有独立配额，**条数不可相加**；`category` 前缀即可区分（`EB-*` / `EW-3` / `SR` 属职业移民，`F*` 属亲属移民）。
 
@@ -49,9 +49,26 @@
 ## 文件结构
 
 ```
-data/2026-09.json     # 单月数据，按 YYYY-MM 命名
-index.json            # 月份索引，含 latest 字段指向当期
-schema/visa-bulletin.schema.json   # JSON Schema
+data/2023-01.json … data/2026-09.json   # 单月数据，按 YYYY-MM 命名，共 44 个
+index.json                              # 月份索引：latest / coverage / months[]
+schema/visa-bulletin.schema.json        # JSON Schema
+```
+
+`index.json` 是唯一入口，消费方读它一个文件就能知道该抓哪份、覆盖到哪、缺了哪期：
+
+```jsonc
+{
+  "latest": "2026-09",
+  "latest_file": "data/2026-09.json",
+  "month_count": 44,
+  "row_count_per_month": 90,
+  "coverage": {
+    "from": "2023-01",
+    "to": "2026-09",
+    "missing_months": ["2023-10"]   // 官方 PDF 存档本身缺失的那期
+  },
+  "months": [ /* 最新在前，每项含 file / source_url / detail_url / row_count */ ]
+}
 ```
 
 ### 单月文件字段
@@ -61,11 +78,12 @@ schema/visa-bulletin.schema.json   # JSON Schema
 | `month` | string | 排期所属月份，`YYYY-MM` |
 | `source_url` | string | 官方公告原文地址 |
 | `source_agency` | string | 发布机构 |
-| `issue_no` | string\|null | 官方公告期号 |
+| `issue_no` | string\|null | 官方公告期号（历史回填月份为 `null`） |
 | `collected_at` | string | 本数据集采集日期 |
 | `site` | string | 数据整理方站点 |
-| `detail_url` | string | 该月排期的中文解读页 |
+| `detail_url` | string | 该月排期在站点的对应页面：已发布逐月解读页的月份指向 `/paiqi/{month}/`，其余指向排期总览页 `/paiqi/` |
 | `license` | string | 数据许可 |
+| `mapping_note` | string | 类别代码与官方表格行的对应口径 |
 | `rows[]` | array | 排期条目，见下 |
 
 `rows[]` 每项四个字段：
@@ -174,10 +192,23 @@ def advance(old, new):
 
 本仓库在每期公告发布后同步更新，流程为人工核对官方公告原文后提交，提交历史即数据的修订记录。数据不做回溯性修改；若发现录入错误，会以新的提交更正并在 commit message 中说明。
 
+### 2023-01 ~ 2026-06 的一次性回填
+
+2026-09 本仓库做过一次历史回填：把 2023-01 起共 41 期的官方公告 PDF 逐期解析后补入。此前的三个月份（2026-07 ~ 09）是逐格人工录入的。
+
+**2023-10 缺失**：国务院 `content/dam` 的 PDF 存档里没有这一期的文件（多种文件名变体均为 404），其 HTML 公告页存在，但本数据集暂未收录。`index.json` 的 `coverage.missing_months` 已声明这一缺口——做连续序列时请以它为准，不要当成抓漏。
+
+### 从哪一期开始看
+
+`coverage.to` 是当期月份，`coverage.from` 是历史起点。要判断「最近一期是否变化」，比对 `data/{latest}.json` 与上一个月即可，无需拉取全部 44 期。
+
 ## 准确性
 
 - 表 A、表 B 的表格标题均逐字核对，避免取错表。
 - 每份文件保留 `source_url`，任何条目均可回溯至官方原文逐格比对。
+- 官方表格的**列集合会变**：2023 年 1–3 月职业移民表多一列 `EL SALVADOR / GUATEMALA / HONDURAS`，2023-04 起被官方删除。本数据集按表头读取列，不按固定列序取值。
+- 历史回填的 41 期与上述三个逐格人工录入的月份做过**逐格对账**，270 格全部一致。
+- 官方 PDF 中偶有排印错误。已知一处：2025-10 期「职业移民表 B · EB-2 · 墨西哥」原文印作 `15UL24`（漏字母 J）。该值已按同行 `WW` / `PHL` 与前后两期同格的交叉印证更正为 `2024-07-15`。
 
 如发现数据与官方公告不符，欢迎提 Issue。
 
@@ -202,9 +233,11 @@ The U.S. Department of State publishes the Visa Bulletin monthly as English HTML
 
 **90 rows per month.** The two charts have separate quotas and must not be summed.
 
+**Coverage: 2023-01 through 2026-09 — 44 months.** One month, 2023-10, is absent because the Department of State's PDF archive does not contain it; the gap is declared in `index.json` as `coverage.missing_months`.
+
 `cutoff_date` is either an ISO date, `C` (Current) or `U` (Unavailable) — note that `C` and `U` are **not** dates.
 
-Read `index.json` for the latest month, then fetch `data/YYYY-MM.json`.
+Read `index.json` for the latest month, then fetch `data/YYYY-MM.json`. `detail_url` in each month file points back to the corresponding page on the site; for months that do not yet have a per-month page it points to the schedule overview.
 
 Maintained by [yiminshuju.com](https://yiminshuju.com). Licensed CC BY 4.0 — attribution required. Original data © U.S. Department of State.
 

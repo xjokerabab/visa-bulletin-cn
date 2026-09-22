@@ -47,7 +47,7 @@
     "detail_url": {
       "type": "string",
       "format": "uri",
-      "description": "该月排期的中文解读页地址"
+      "description": "该月排期在站点的对应页面。站点已为该月发布逐月解读页时指向 https://yiminshuju.com/paiqi/{month}/；尚未发布时指向排期总览页 https://yiminshuju.com/paiqi/。两种取值都是有效页面。"
     },
     "license": {
       "type": "string",
@@ -76,7 +76,7 @@
           },
           "chargeability": {
             "enum": ["WW", "CHN", "IND"],
-            "description": "可受理国家/地区。WW = All Chargeability Areas Except Those Listed（全球，不含中印）；CHN = 中国大陆出生；IND = 印度出生。官方表格另列 MEXICO、PHILIPPINES 两栏，本数据集未采集。"
+            "description": "可受理国家/地区。WW = All Chargeability Areas Except Those Listed（全球，不含中印）；CHN = 中国大陆出生；IND = 印度出生。官方表格另列 MEXICO、PHILIPPINES（以及 2023 年 1–3 月期间的 EL SALVADOR / GUATEMALA / HONDURAS）三栏，本数据集只收录上述三栏。"
           },
           "cutoff_date": {
             "type": "string",
