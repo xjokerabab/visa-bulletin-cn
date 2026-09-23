@@ -16,7 +16,7 @@
 | 表别 | 表 A 最终裁定日（Final Action Dates）、表 B 递交申请日（Dates for Filing） |
 | 国家/地区 | 全球（WW，不含中印）、中国大陆出生（CHN）、印度出生（IND） |
 | 单月条目 | 15 类别 × 2 表别 × 3 国家 = **90 条** |
-| 时间跨度 | **2023-01 ~ 2026-09，共 44 期**（官方 PDF 存档缺 2023-10，见「更新节奏」） |
+| 时间跨度 | **2023-01 ~ 2026-09，共 45 期** |
 
 ### 类别对照
 
@@ -49,23 +49,23 @@
 ## 文件结构
 
 ```
-data/2023-01.json … data/2026-09.json   # 单月数据，按 YYYY-MM 命名，共 44 个
+data/2023-01.json … data/2026-09.json   # 单月数据，按 YYYY-MM 命名，共 45 个
 index.json                              # 月份索引：latest / coverage / months[]
 schema/visa-bulletin.schema.json        # JSON Schema
 ```
 
-`index.json` 是唯一入口，消费方读它一个文件就能知道该抓哪份、覆盖到哪、缺了哪期：
+`index.json` 是唯一入口，消费方读它一个文件就能知道该抓哪份、覆盖到哪、每月多少条：
 
 ```jsonc
 {
   "latest": "2026-09",
   "latest_file": "data/2026-09.json",
-  "month_count": 44,
+  "month_count": 45,
   "row_count_per_month": 90,
   "coverage": {
     "from": "2023-01",
     "to": "2026-09",
-    "missing_months": ["2023-10"]   // 官方 PDF 存档本身缺失的那期
+    "missing_months": []
   },
   "months": [ /* 最新在前，每项含 file / source_url / detail_url / row_count */ ]
 }
@@ -194,20 +194,18 @@ def advance(old, new):
 
 ### 2023-01 ~ 2026-06 的一次性回填
 
-2026-09 本仓库做过一次历史回填：把 2023-01 起共 41 期的官方公告 PDF 逐期解析后补入。此前的三个月份（2026-07 ~ 09）是逐格人工录入的。
-
-**2023-10 缺失**：国务院 `content/dam` 的 PDF 存档里没有这一期的文件（多种文件名变体均为 404），其 HTML 公告页存在，但本数据集暂未收录。`index.json` 的 `coverage.missing_months` 已声明这一缺口——做连续序列时请以它为准，不要当成抓漏。
+2026-09 本仓库做过一次历史回填：把 2023-01 ~ 2026-06 共 42 期的官方公告逐期解析后补入。此前的三个月份（2026-07 ~ 09）是逐格人工录入的。
 
 ### 从哪一期开始看
 
-`coverage.to` 是当期月份，`coverage.from` 是历史起点。要判断「最近一期是否变化」，比对 `data/{latest}.json` 与上一个月即可，无需拉取全部 44 期。
+`coverage.to` 是当期月份，`coverage.from` 是历史起点。要判断「最近一期是否变化」，比对 `data/{latest}.json` 与上一个月即可，无需拉取全部 45 期。
 
 ## 准确性
 
 - 表 A、表 B 的表格标题均逐字核对，避免取错表。
 - 每份文件保留 `source_url`，任何条目均可回溯至官方原文逐格比对。
 - 官方表格的**列集合会变**：2023 年 1–3 月职业移民表多一列 `EL SALVADOR / GUATEMALA / HONDURAS`，2023-04 起被官方删除。本数据集按表头读取列，不按固定列序取值。
-- 历史回填的 41 期与上述三个逐格人工录入的月份做过**逐格对账**，270 格全部一致。
+- 历史回填的 42 期与上述三个逐格人工录入的月份做过**逐格对账**，270 格全部一致。
 - 官方 PDF 中偶有排印错误。已知一处：2025-10 期「职业移民表 B · EB-2 · 墨西哥」原文印作 `15UL24`（漏字母 J）。该值已按同行 `WW` / `PHL` 与前后两期同格的交叉印证更正为 `2024-07-15`。
 
 如发现数据与官方公告不符，欢迎提 Issue。
@@ -233,7 +231,7 @@ The U.S. Department of State publishes the Visa Bulletin monthly as English HTML
 
 **90 rows per month.** The two charts have separate quotas and must not be summed.
 
-**Coverage: 2023-01 through 2026-09 — 44 months.** One month, 2023-10, is absent because the Department of State's PDF archive does not contain it; the gap is declared in `index.json` as `coverage.missing_months`.
+**Coverage: 2023-01 through 2026-09 — 45 consecutive months.**
 
 `cutoff_date` is either an ISO date, `C` (Current) or `U` (Unavailable) — note that `C` and `U` are **not** dates.
 

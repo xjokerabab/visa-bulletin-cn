@@ -137,9 +137,9 @@ if (!fs.existsSync(INDEX_FILE)) {
     fail('index.json', `month_count 应为 ${expected.length}，实为 ${index.month_count}`);
   }
 
-  // coverage 必须与实际月份序列自洽。这段不是装饰：序列里断了一格（本数据集是
-  // 2023-10，官方 PDF 存档本身没有那一期）而 coverage 没跟上，消费方做连续序列时
-  // 会以为是自己抓漏了。所以「声明缺的」必须与「真的缺的」逐字相等。
+  // coverage 必须与实际月份序列自洽。这段不是装饰：序列里一旦断了一格而 coverage
+  // 没跟上，消费方做连续序列时会以为是自己抓漏了。所以「声明缺的」必须与「真的缺的」
+  // 逐字相等 —— 缺口声明宁可留空，也不能与文件树对不上。
   if (index.coverage) {
     const gaps = [];
     for (let i = expected.length - 1; i > 0; i -= 1) {
