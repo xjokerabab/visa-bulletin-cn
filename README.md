@@ -112,7 +112,7 @@ curl -s https://raw.githubusercontent.com/xjokerabab/visa-bulletin-cn/main/data/
 curl -s https://cdn.jsdelivr.net/gh/xjokerabab/visa-bulletin-cn@main/index.json | jq '.latest'
 ```
 
-两个地址内容完全一致，任选其一。做批量拉取或长期依赖时，建议把域名做成可配置项，别写死在代码里。
+两个地址指向同一份内容。注意 jsDelivr 对 `@main` 有缓存，每月更新后的一段时间内可能还是旧版本；需要第一时间拿到新一期时，用 raw 地址。做批量拉取或长期依赖时，建议把域名做成可配置项，别写死在代码里。
 
 Python：
 
@@ -168,7 +168,7 @@ def advance(old, new):
 
 ```bibtex
 @misc{visabulletincn,
-  title        = {Visa Bulletin CN: 美国职业移民排期中文结构化数据集},
+  title        = {Visa Bulletin CN: 美国职业移民与亲属移民排期中文结构化数据集},
   author       = {{yiminshuju.com}},
   year         = {2026},
   howpublished = {\url{https://github.com/xjokerabab/visa-bulletin-cn}},
@@ -205,8 +205,8 @@ def advance(old, new):
 - 表 A、表 B 的表格标题均逐字核对，避免取错表。
 - 每份文件保留 `source_url`，任何条目均可回溯至官方原文逐格比对。
 - 官方表格的**列集合会变**：2023 年 1–3 月职业移民表多一列 `EL SALVADOR / GUATEMALA / HONDURAS`，2023-04 起被官方删除。本数据集按表头读取列，不按固定列序取值。
-- 历史回填的 42 期与上述三个逐格人工录入的月份做过**逐格对账**，270 格全部一致。
-- 官方 PDF 中偶有排印错误。已知一处：2025-10 期「职业移民表 B · EB-2 · 墨西哥」原文印作 `15UL24`（漏字母 J）。该值已按同行 `WW` / `PHL` 与前后两期同格的交叉印证更正为 `2024-07-15`。
+- 回填所用的解析流程对 2026-07 ~ 09 三期也跑了一遍，与逐格人工录入的结果做了**逐格对账**，270 格（3 期 × 90 条）全部一致。
+- 官方 PDF 中偶有排印错误。已知一处：2025-10 期「职业移民表 B · EB-2 · 墨西哥」原文印作 `15UL24`（漏字母 J），按同行 `WW` / `PHL` 与前后两期同格交叉印证，应为 `2024-07-15`。墨西哥栏不在本数据集收录范围内，这处错误**不影响本数据集的任何取值**；列在这里，是提醒自行解析官方公告的人留意。
 
 如发现数据与官方公告不符，欢迎提 Issue。
 
@@ -225,18 +225,78 @@ def advance(old, new):
 <details>
 <summary><b>English</b></summary>
 
-### Visa Bulletin CN — U.S. Visa Bulletin cutoff dates as structured JSON
+### Visa Bulletin CN: U.S. Visa Bulletin cutoff dates as structured JSON
 
-The U.S. Department of State publishes the Visa Bulletin monthly as English HTML tables. This repository provides the cutoff dates as stable JSON: **15 categories across two independent charts** — employment-based (EB-1/2/3, Other Workers, EB-4, Certain Religious Workers, EB-5 Unreserved and its three Set-Aside categories) and family-sponsored (F1, F2A, F2B, F3, F4) — for both Final Action Dates and Dates for Filing, and for All Chargeability Areas / China-mainland-born / India-born.
+The U.S. Department of State publishes the [Visa Bulletin](https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html) every month as English HTML tables, which are awkward to consume from code. This repository provides the same cutoff dates as stable, validated JSON.
 
-**90 rows per month.** The two charts have separate quotas and must not be summed.
+| | |
+|---|---|
+| Categories | 15: employment-based (10) + family-sponsored (5) |
+| Charts | A = Final Action Dates, B = Dates for Filing |
+| Chargeability | `WW` (All Chargeability Areas Except Those Listed), `CHN` (China mainland-born), `IND` (India-born) |
+| Rows per month | 15 × 2 × 3 = **90** |
+| Coverage | **2023-01 through 2026-09, 45 consecutive months** |
 
-**Coverage: 2023-01 through 2026-09 — 45 consecutive months.**
+The Mexico and Philippines columns (and El Salvador / Guatemala / Honduras, listed Jan–Mar 2023 only) are not included.
 
-`cutoff_date` is either an ISO date, `C` (Current) or `U` (Unavailable) — note that `C` and `U` are **not** dates.
+#### Category codes
 
-Read `index.json` for the latest month, then fetch `data/YYYY-MM.json`. `detail_url` in each month file points back to the corresponding page on the site; for months that do not yet have a per-month page it points to the schedule overview.
+| Code | Official row | | Code | Official row |
+|---|---|---|---|---|
+| `EB-1` | 1st | | `EB-5` | 5th Unreserved |
+| `EB-2` | 2nd | | `EB-5-RU` | 5th Set Aside: Rural |
+| `EB-3` | 3rd | | `EB-5-HU` | 5th Set Aside: High Unemployment |
+| `EW-3` | Other Workers | | `EB-5-INF` | 5th Set Aside: Infrastructure |
+| `EB-4` | 4th | | `F1` `F2A` `F2B` `F3` `F4` | Family-sponsored 1st / 2A / 2B / 3rd / 4th |
+| `SR` | Certain Religious Workers | | | |
 
-Maintained by [yiminshuju.com](https://yiminshuju.com). Licensed CC BY 4.0 — attribution required. Original data © U.S. Department of State.
+The employment-based and family-sponsored charts have **separate quotas** and must not be summed.
+
+#### Files
+
+```
+index.json                              # entry point: latest / coverage / months[]
+data/YYYY-MM.json                       # one file per bulletin month
+schema/visa-bulletin.schema.json        # JSON Schema
+```
+
+Each row has four fields: `category`, `chart` (`A` / `B`), `chargeability` (`WW` / `CHN` / `IND`) and `cutoff_date`.
+
+`cutoff_date` is an ISO date (`YYYY-MM-DD`), `C` (Current) or `U` (Unavailable). **`C` and `U` are not dates.** Exclude them before doing any date arithmetic.
+
+#### Quick start
+
+```bash
+curl -s https://raw.githubusercontent.com/xjokerabab/visa-bulletin-cn/main/index.json | jq '.latest_file'
+curl -s https://raw.githubusercontent.com/xjokerabab/visa-bulletin-cn/main/data/2026-09.json \
+  | jq '.rows[] | select(.category=="EB-2" and .chart=="A" and .chargeability=="CHN")'
+```
+
+```python
+import json, urllib.request
+
+BASE = "https://raw.githubusercontent.com/xjokerabab/visa-bulletin-cn/main"
+idx = json.load(urllib.request.urlopen(f"{BASE}/index.json"))
+data = json.load(urllib.request.urlopen(f"{BASE}/{idx['latest_file']}"))
+```
+
+A jsDelivr mirror is available at `https://cdn.jsdelivr.net/gh/xjokerabab/visa-bulletin-cn@main/`. It is cached, so it may lag behind for a while after each monthly update.
+
+#### Updates and accuracy
+
+- The State Department usually publishes each bulletin in the middle of the month before it takes effect. This repository is updated after each release, and every value is checked by hand against the official bulletin. The commit history is the revision log.
+- Every file keeps its `source_url`, so any cell can be traced back to the official bulletin.
+- CI (`.github/scripts/validate.mjs`) checks every file on each push: row count, category/chart/chargeability combinations, date validity, and consistency between `index.json` and the files.
+- Found a mismatch with the official bulletin? Please open an issue.
+
+#### Citation and license
+
+Data licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Attribution required:
+
+```
+Data: yiminshuju.com (https://yiminshuju.com) — visa-bulletin-cn, CC BY 4.0
+```
+
+Original data © U.S. Department of State. This dataset is for information only and is not legal or immigration advice.
 
 </details>

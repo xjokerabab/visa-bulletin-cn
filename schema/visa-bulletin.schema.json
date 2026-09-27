@@ -32,10 +32,11 @@
     },
     "issue_no": {
       "type": ["string", "null"],
-      "description": "官方公告期号，如 Volume XI, Number 18"
+      "pattern": "^Number \\d+, Volume [IVXLC]+$",
+      "description": "官方公告期号，按公告页眉顺序书写，如 Number 18, Volume XI；历史回填月份为 null"
     },
     "collected_at": {
-      "type": ["string", "null"],
+      "type": "string",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
       "description": "本数据集采集该期数据的日期"
     },

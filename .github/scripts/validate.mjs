@@ -1,7 +1,7 @@
 // 数据集自检 · 零依赖
 //
 // 这个仓库的产物是数据本身，所以 CI 唯一该做的事就是「验数据」，不是「抓数据」。
-// 采集仍是人工在本地完成（见 README「采集与准确性」），这里只拦录入错误：
+// 采集仍是人工在本地完成（见 README「更新节奏」「准确性」），这里只拦录入错误：
 // 少一条、类别拼错、日期格式歪掉、index.json 与实际文件对不上。
 //
 // 用法：node .github/scripts/validate.mjs
@@ -22,6 +22,7 @@ const rowProps = schema.properties.rows.items.properties;
 const CATEGORIES = rowProps.category.enum;
 const CHARTS = rowProps.chart.enum;
 const CHARGEABILITY = rowProps.chargeability.enum;
+const ROW_KEYS = Object.keys(rowProps);
 const EXPECTED_ROWS = CATEGORIES.length * CHARTS.length * CHARGEABILITY.length;
 
 const SITE = 'https://yiminshuju.com';
@@ -29,8 +30,18 @@ const SITE = 'https://yiminshuju.com';
 const errors = [];
 const fail = (file, msg) => errors.push(`${file}: ${msg}`);
 
-const isIsoDate = s => /^\d{4}-\d{2}-\d{2}$/.test(s) && !Number.isNaN(Date.parse(s));
+// 不能只靠 Date.parse：V8 会把 2023-02-30 顺延成 03-02 并当作合法日期。
+// 这里按年月日构造后再逐项比回去，对不上就是不存在的日期。
+const isIsoDate = s => {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+  if (!m) return false;
+  const [y, mo, d] = m.slice(1).map(Number);
+  const dt = new Date(Date.UTC(y, mo - 1, d));
+  return dt.getUTCFullYear() === y && dt.getUTCMonth() === mo - 1 && dt.getUTCDate() === d;
+};
 const isMonth = s => /^\d{4}-(0[1-9]|1[0-2])$/.test(s);
+// 期号统一按官方公告页眉的顺序书写：Number 18, Volume XI
+const ISSUE_NO = /^Number \d+, Volume [IVXLC]+$/;
 
 // ── 1. 逐月校验 ──────────────────────────────────────────────
 const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json')).sort();
@@ -52,7 +63,7 @@ for (const file of files) {
   if (!isMonth(data.month)) fail(file, `month 格式应为 YYYY-MM，实为 ${data.month}`);
   seenMonths.push(expectedMonth);
 
-  for (const key of ['source_agency', 'source_url', 'site', 'detail_url', 'license', 'rows']) {
+  for (const key of ['source_agency', 'source_url', 'collected_at', 'site', 'detail_url', 'license', 'rows']) {
     if (data[key] === undefined || data[key] === null) fail(file, `缺少必填字段 ${key}`);
   }
 
@@ -71,8 +82,11 @@ for (const file of files) {
   if (data.detail_url !== monthPage && data.detail_url !== hubPage) {
     fail(file, `detail_url 应为 ${monthPage} 或 ${hubPage}，实为 ${data.detail_url}`);
   }
-  if (data.collected_at && !isIsoDate(data.collected_at)) {
+  if (data.collected_at != null && !isIsoDate(data.collected_at)) {
     fail(file, `collected_at 不是合法日期：${data.collected_at}`);
+  }
+  if (data.issue_no != null && !ISSUE_NO.test(data.issue_no)) {
+    fail(file, `issue_no 格式应为「Number N, Volume X」，实为 ${data.issue_no}`);
   }
 
   if (!Array.isArray(data.rows)) {
@@ -87,6 +101,9 @@ for (const file of files) {
   const seen = new Set();
   for (const [i, r] of data.rows.entries()) {
     const at = `rows[${i}]`;
+    for (const k of Object.keys(r)) {
+      if (!ROW_KEYS.includes(k)) fail(file, `${at} 含 schema 未定义的字段：${k}`);
+    }
     if (!CATEGORIES.includes(r.category)) fail(file, `${at}.category 非法：${r.category}`);
     if (!CHARTS.includes(r.chart)) fail(file, `${at}.chart 非法：${r.chart}`);
     if (!CHARGEABILITY.includes(r.chargeability)) fail(file, `${at}.chargeability 非法：${r.chargeability}`);
@@ -166,8 +183,9 @@ if (!fs.existsSync(INDEX_FILE)) {
       continue;
     }
     const data = JSON.parse(fs.readFileSync(target, 'utf8'));
-    if (m.row_count !== data.rows.length) {
-      fail('index.json', `${m.month} 的 row_count（${m.row_count}）与文件实际（${data.rows.length}）不符`);
+    const actual = Array.isArray(data.rows) ? data.rows.length : null;
+    if (m.row_count !== actual) {
+      fail('index.json', `${m.month} 的 row_count（${m.row_count}）与文件实际（${actual}）不符`);
     }
     if (m.source_url !== data.source_url) {
       fail('index.json', `${m.month} 的 source_url 与文件内不一致`);
