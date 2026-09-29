@@ -4,17 +4,25 @@
   "site": "https://yiminshuju.com",
   "license": "CC BY 4.0",
   "source_agency": "U.S. Department of State, Bureau of Consular Affairs",
-  "updated_at": "2026-09-23",
-  "latest": "2026-09",
-  "latest_file": "data/2026-09.json",
-  "month_count": 45,
+  "updated_at": "2026-09-29",
+  "latest": "2026-10",
+  "latest_file": "data/2026-10.json",
+  "month_count": 46,
   "row_count_per_month": 90,
   "coverage": {
     "from": "2023-01",
-    "to": "2026-09",
+    "to": "2026-10",
     "missing_months": []
   },
   "months": [
+    {
+      "month": "2026-10",
+      "file": "data/2026-10.json",
+      "source_url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2027/visa-bulletin-for-october-2026.html",
+      "detail_url": "https://yiminshuju.com/paiqi/2026-10/",
+      "collected_at": "2026-09-29",
+      "row_count": 90
+    },
     {
       "month": "2026-09",
       "file": "data/2026-09.json",
